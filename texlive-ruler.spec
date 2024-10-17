@@ -3,7 +3,7 @@ Version:	54251
 Release:	2
 Summary:	A typographic ruler for TeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/ruler
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ruler
 License:	gpl
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ruler.r%{version}.tar.xz
 BuildArch:	noarch
