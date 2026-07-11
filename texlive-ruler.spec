@@ -1,36 +1,22 @@
-Name:		texlive-ruler
-Version:	54251
-Release:	2
+%global tl_name ruler
+%global tl_revision 54251
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.1
+Release:	%{tl_revision}.1
 Summary:	A typographic ruler for TeX
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/ruler
+URL:		https://www.ctan.org/tex-archive/macros/generic/misc/ruler.tex
 License:	gpl
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ruler.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/ruler.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The file processes to produce (real) rulers; the author
-suggests printing them on transparent plastic and trimming for
-use as a "real" ruler. The rule widths are 0.05mm, which can be
-challenging for (old) laser printers.
+The file processes to produce (real) rulers; the author suggests
+printing them on transparent plastic and trimming for use as a "real"
+ruler. The rule widths are 0.05mm, which can be challenging for (old)
+laser printers.
 
-%prep
-%autosetup -p1 -c
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/tex/generic/ruler
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
